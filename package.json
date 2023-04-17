@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Carlos Azaustre (https://youtube.com/carlosazaustre)",
+  "license": "MIT",
   "scripts": {
     "prepare": "husky install",
     "dev": "next dev",
