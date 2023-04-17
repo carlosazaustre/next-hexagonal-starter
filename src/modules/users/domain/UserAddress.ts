@@ -1,4 +1,4 @@
-import UserAddressGeolocation from './UserAddressGeolocation';
+import { UserAddressGeolocation } from './UserAddressGeolocation';
 
 export interface UserAddress {
   street: string;
