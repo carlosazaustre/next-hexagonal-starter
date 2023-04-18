@@ -12,7 +12,7 @@ export function PostCard({ post }: PostCardProps): JSX.Element {
         <h2 className="card-title">{post.title}</h2>
         <p className="card-subtitle">{post.body}</p>
         <div className="card-actions justify-end">
-          <div className="badge badge-primary">{post.author}</div>
+          <div className="badge badge-primary">{post.author?.name}</div>
         </div>
       </div>
     </div>
