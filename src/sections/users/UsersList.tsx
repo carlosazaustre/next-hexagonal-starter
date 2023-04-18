@@ -6,7 +6,7 @@ export function UsersList() {
   return (
     <>
       {users.map((user) => (
-        <div key={user.id} className="card w-96 bg-base-100 shadow-xl m-4">
+        <div key={user.id} className="card card-bordered w-96 bg-base-100 shadow-xl m-4">
           <div className="card-body">
             <h2 className="card-title">{user.name}</h2>
             <div className="card-actions justify-end">
