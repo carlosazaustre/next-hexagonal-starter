@@ -24,6 +24,7 @@ export const UsersContextProvider = ({ children, repository }: UsersContextProps
 
   async function getUserById(id: number) {
     const user = await getUser(repository)(id);
+    debugger;
     setCurrentUser(user);
   }
 

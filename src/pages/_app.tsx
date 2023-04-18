@@ -13,7 +13,10 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <UsersContextProvider repository={userRepository}>
-      <PostsContextProvider repository={postsRepository}>
+      <PostsContextProvider
+        postRepository={postsRepository}
+        userRepository={userRepository}
+      >
         <NavBar>
           <Component {...pageProps} />
           <Footer />

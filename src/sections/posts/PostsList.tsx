@@ -1,4 +1,5 @@
 import { usePostsContext } from "./PostsContext";
+import { PostCard } from "./PostCard";
 
 export function PostsList(): JSX.Element {
   const { posts } = usePostsContext();
@@ -6,12 +7,7 @@ export function PostsList(): JSX.Element {
   return (
     <div className="container mx-auto">
       {posts.map((post) => (
-        <div key={post.id} className="card w-100 bg-base-100 shadow-xl m-4">
-          <div className="card-body">
-            <h2 className="card-title">{post.title}</h2>
-            <p className="card-subtitle">{post.body}</p>
-          </div>
-        </div>
+        <PostCard key={post.id} post={post} />
       ))}
     </div>
   );
