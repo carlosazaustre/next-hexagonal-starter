@@ -4,6 +4,8 @@ import { UsersContextProvider } from '@/sections/users/UsersContext'
 import { PostsContextProvider } from '@/sections/posts/PostsContext'
 import { createApiUserRepository } from '@/modules/users/infra/ApiUserRepository'
 import { createApiPostRepository } from '@/modules/posts/infra/ApiPostRepository'
+import { NavBar } from '@/components/NavBar'
+import { Footer } from '@/components/Footer'
 
 export default function App({ Component, pageProps }: AppProps) {
   const userRepository = createApiUserRepository();
@@ -12,7 +14,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <UsersContextProvider repository={userRepository}>
       <PostsContextProvider repository={postsRepository}>
-      <Component {...pageProps} />
+        <NavBar>
+          <Component {...pageProps} />
+          <Footer />
+        </NavBar>
       </PostsContextProvider>
     </UsersContextProvider>
   );

@@ -4,7 +4,7 @@ import { PostsList } from '@/sections/posts/PostsList'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className={inter.className}>
       <PostsList />
