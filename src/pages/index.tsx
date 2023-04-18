@@ -1,13 +1,13 @@
 // import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import { UsersList } from '@/sections/users/UsersList'
+import { PostsList } from '@/sections/posts/PostsList'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <main className={inter.className}>
-      <UsersList />
+      <PostsList />
     </main>
   )
 }

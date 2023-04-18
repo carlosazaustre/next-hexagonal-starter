@@ -7,15 +7,18 @@ import { getUser } from '../../modules/users/application/get/getUser';
 
 interface ContextState {
   users: User[];
+  currentUser: User | null;
   getUserById: (id: number) => Promise<void>;
 }
 
 export const UsersContext = createContext({} as ContextState);
 
-export const UsersContextProvider = ({
-  children,
-  repository,
-}: React.PropsWithChildren<{ repository: UserRepository }>) => {
+interface UsersContextProps {
+  children: React.ReactNode;
+  repository: UserRepository;
+}
+
+export const UsersContextProvider = ({ children, repository }: UsersContextProps): JSX.Element => {
   const [users, setUsers] = useState<User[]>([]);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
@@ -35,7 +38,7 @@ export const UsersContextProvider = ({
   }, []);
 
   return (
-    <UsersContext.Provider value={{ users, getUserById }}>
+    <UsersContext.Provider value={{ users, currentUser, getUserById }}>
       {children}
     </UsersContext.Provider>
   );
