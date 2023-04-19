@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-import { User } from '../../modules/users/domain/User';
-import { UserRepository } from '../../modules/users/domain/UserRepository';
-import { getAllUsers } from '../../modules/users/application/get-all/getAllUsers';
-import { getUser } from '../../modules/users/application/get/getUser';
+import { User } from "../../modules/users/domain/User";
+import { UserRepository } from "../../modules/users/domain/UserRepository";
+import { getAllUsers } from "../../modules/users/application/get-all/getAllUsers";
+import { getUser } from "../../modules/users/application/get/getUser";
 
 interface ContextState {
   users: User[];
@@ -18,7 +18,10 @@ interface UsersContextProps {
   repository: UserRepository;
 }
 
-export const UsersContextProvider = ({ children, repository }: UsersContextProps): JSX.Element => {
+export const UsersContextProvider = ({
+  children,
+  repository,
+}: UsersContextProps): JSX.Element => {
   const [users, setUsers] = useState<User[]>([]);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
@@ -35,7 +38,7 @@ export const UsersContextProvider = ({ children, repository }: UsersContextProps
 
   useEffect(() => {
     getUsers();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

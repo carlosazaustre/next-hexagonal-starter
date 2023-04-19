@@ -25,7 +25,7 @@ interface PostsContextProps {
 export const PostsContextProvider = ({
   children,
   postRepository,
-  userRepository
+  userRepository,
 }: PostsContextProps): JSX.Element => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPost, setCurrentPost] = useState<Post | null>(null);
@@ -47,10 +47,13 @@ export const PostsContextProvider = ({
 
   useEffect(() => {
     getPosts();
-  },[]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <PostsContext.Provider value={{ posts, currentPost, getPostById, getPostsByUser }}>
+    <PostsContext.Provider
+      value={{ posts, currentPost, getPostById, getPostsByUser }}
+    >
       {children}
     </PostsContext.Provider>
   );

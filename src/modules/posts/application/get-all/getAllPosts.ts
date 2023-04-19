@@ -4,7 +4,7 @@ import { UserRepository } from "../../../users/domain/UserRepository";
 
 export function getAllPosts(
   postRepository: PostRepository,
-  userRepository: UserRepository
+  userRepository: UserRepository,
 ) {
   return async (): Promise<Post[]> => {
     const posts = await postRepository.getAll();
@@ -18,8 +18,8 @@ export function getAllPosts(
             id: user?.id,
             name: user?.name,
           },
-        }
-      })
+        };
+      }),
     );
 
     return postsWithAuthor;

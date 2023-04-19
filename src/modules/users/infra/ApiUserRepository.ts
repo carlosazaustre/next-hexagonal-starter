@@ -1,7 +1,7 @@
-import { User } from '../domain/User';
-import { UserRepository } from '../domain/UserRepository';
+import { User } from "../domain/User";
+import { UserRepository } from "../domain/UserRepository";
 
-const JSONPLACEHOLDER_URL = 'https://jsonplaceholder.typicode.com';
+const JSONPLACEHOLDER_URL = "https://jsonplaceholder.typicode.com";
 
 export function createApiUserRepository(): UserRepository {
   const cache: Map<number, User> = new Map();
@@ -34,5 +34,5 @@ export function createApiUserRepository(): UserRepository {
   return {
     get,
     getAll,
-  }
+  };
 }

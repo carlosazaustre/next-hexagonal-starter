@@ -1,4 +1,4 @@
-import { UsersList } from '@/sections/users/UsersList'
+import { UsersList } from "@/sections/users/UsersList";
 export default function UsersPage() {
   return (
     <main>

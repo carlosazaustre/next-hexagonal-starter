@@ -1,4 +1,4 @@
-import { Author } from '../../users/domain/Author';
+import { Author } from "../../users/domain/Author";
 
 export interface Post {
   userId: number;
