@@ -15,6 +15,7 @@ export function PostCard({ post }: PostCardProps): JSX.Element {
         <p className="card-subtitle">{post.body}</p>
         <div className="card-actions justify-end">
           <div className="badge badge-primary">{post.author?.name}</div>
+          <div className="badge badge-outline">{post.commentCount} comments</div>
         </div>
       </div>
     </div>

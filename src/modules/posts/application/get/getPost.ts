@@ -1,10 +1,12 @@
 import { Post } from "../../domain/Post";
 import { PostRepository } from "../../domain/PostRepository";
-import { UserRepository } from "../../../users/domain/UserRepository";
+import { UserRepository } from "@/modules/users/domain/UserRepository";
+import { CommentRepository } from "@/modules/comments/domain/CommentRepository";
 
 export function getPost(
   postRepository: PostRepository,
   userRepository: UserRepository,
+  commentRepository: CommentRepository,
 ) {
   return async (postId: number): Promise<Post> => {
     const post = await postRepository.get(postId);
@@ -13,16 +15,20 @@ export function getPost(
       throw new Error(`Post with id ${postId} not found`);
     }
 
-    const author = await userRepository.get(post?.userId);
+    const [author, comments] = await Promise.all([
+      userRepository.get(post.userId),
+      commentRepository.getAllByPost(postId),
+    ]);
 
-    const postWithAuthor = {
+    const postWithAuthorAndCommentCount = {
       ...post,
       author: {
         id: author?.id,
         name: author?.name,
       },
+      commentCount: comments.length,
     };
 
-    return postWithAuthor;
+    return postWithAuthorAndCommentCount;
   };
 }

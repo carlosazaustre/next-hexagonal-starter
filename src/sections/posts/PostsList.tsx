@@ -1,9 +1,12 @@
 import Link from "next/link";
-import { usePostsContext } from "./PostsContext";
+import { Post } from "@/modules/posts/domain/Post";
 import { PostCard } from "./PostCard";
 
-export function PostsList(): JSX.Element {
-  const { posts } = usePostsContext();
+interface PostListProps {
+  posts: Post[];
+}
+
+export function PostsList({ posts }: PostListProps): JSX.Element {
 
   return (
     <div className="container mx-auto">

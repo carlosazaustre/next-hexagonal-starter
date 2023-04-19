@@ -34,7 +34,7 @@ export default function PostPage({ post, comments }: PostPageProps): JSX.Element
 }
 
 export async function getStaticPaths() {
-  const posts = (await getAllPosts(postRepository, userRepository)()) as Post[];
+  const posts = (await getAllPosts(postRepository, userRepository, commentRepository)()) as Post[];
   const paths = posts.map((post: Post) => ({
     params: {
       postId: post.id.toString(),
@@ -55,7 +55,7 @@ export async function getStaticProps({
   };
 }) {
   const { postId } = params;
-  const post = (await getPost(postRepository,userRepository)(parseInt(postId))) as Post;
+  const post = (await getPost(postRepository,userRepository, commentRepository)(parseInt(postId))) as Post;
   const comments = (await getAllCommentsByPost(commentRepository)(parseInt(postId))) as Comment[];
 
   return {

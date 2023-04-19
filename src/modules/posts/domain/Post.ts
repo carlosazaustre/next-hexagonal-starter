@@ -6,4 +6,5 @@ export interface Post {
   title: string;
   body: string;
   author?: Author;
+  commentCount?: number;
 }

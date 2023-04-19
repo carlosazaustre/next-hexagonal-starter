@@ -21,21 +21,21 @@ async function get(commentId: number): Promise<Comment> {
 
 async function getAll(): Promise<Comment[]> {
     const response = await fetch(`${JSONPLACEHOLDER_URL}/comments`);
-    const comments = await response.json() as Promise<Comment[]>;
+    const comments = await response.json();
 
     return comments;
 }
 
 async function getAllByPost(postId: number) {
     const response = await fetch(`${JSONPLACEHOLDER_URL}/posts/${postId}/comments`);
-    const comments = await response.json() as Promise<Comment[]>;
+    const comments = await response.json();
 
     return comments;
 }
 
 async function getAllByUser(userId: number) {
     const response = await fetch(`${JSONPLACEHOLDER_URL}/users/${userId}/comments`);
-    const comments = await response.json() as Promise<Comment[]>;
+    const comments = await response.json();
 
     return comments;
 }
