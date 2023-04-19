@@ -31,7 +31,7 @@ export const PostsContextProvider = ({
   const [currentPost, setCurrentPost] = useState<Post | null>(null);
 
   async function getPostById(id: number) {
-    const post = await getPost(postRepository)(id);
+    const post = await getPost(postRepository, userRepository)(id);
     setCurrentPost(post);
   }
 

@@ -3,7 +3,7 @@ import { PostRepository } from "../../domain/PostRepository";
 import { UserRepository } from "../../../users/domain/UserRepository";
 
 export function getAllPosts(
-  postRepository: PostRepository, 
+  postRepository: PostRepository,
   userRepository: UserRepository
 ) {
   return async (): Promise<Post[]> => {

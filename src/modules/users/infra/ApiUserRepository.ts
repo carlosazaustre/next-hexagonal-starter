@@ -13,7 +13,6 @@ export function createApiUserRepository(): UserRepository {
 
     const response = await fetch(`${JSONPLACEHOLDER_URL}/users/${id}`);
     const user = await response.json();
-
     cache.set(id, user);
 
     return user;
