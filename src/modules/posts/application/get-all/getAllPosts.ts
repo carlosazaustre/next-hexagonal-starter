@@ -9,16 +9,27 @@ export function getAllPosts(
   postRepository: PostRepository,
   userRepository: UserRepository,
   commentRepository: CommentRepository,
+  limit?: number,
+  page?: number,
 ) {
   return async (): Promise<Post[]> => {
+    let postsPromise: Promise<Post[]>;
+
+    if (limit && page) {
+      postsPromise = postRepository.getAllWithPagination(limit, page);
+    } else {
+      postsPromise = postRepository.getAll();
+    }
+
     const [posts, users, comments] = await Promise.all([
-      postRepository.getAll(),
+      postsPromise,
       userRepository.getAll(),
       commentRepository.getAll(),
     ]);
 
     const userMap = createUserMap(users);
     const commentCountByPostId = createCommentCountMap(comments);
+
     return await addAuthorAndCommentCountToPosts(posts, userMap, commentCountByPostId);
   };
 }

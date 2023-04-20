@@ -4,7 +4,7 @@ import { PostRepository } from "../domain/PostRepository";
 const JSONPLACEHOLDER_URL = "https://jsonplaceholder.typicode.com";
 
 export function createApiPostRepository(): PostRepository {
-  const cache: Map<number, Post> = new Map();
+  const cache = new Map<number, Post>();
 
   async function get(postId: number): Promise<Post> {
     if (cache.has(postId)) {
@@ -16,6 +16,14 @@ export function createApiPostRepository(): PostRepository {
     cache.set(postId, post);
 
     return post;
+  }
+
+  async function getAllWithPagination(limit: number, page: number): Promise<Post[]> {
+    const offset = (page - 1) * limit;
+    const response = await fetch(`${JSONPLACEHOLDER_URL}/posts?_start=${offset}&_limit=${limit}`);
+    const posts = await response.json();
+
+    return posts;
   }
 
   async function getAll(): Promise<Post[]> {
@@ -47,6 +55,7 @@ export function createApiPostRepository(): PostRepository {
 
   return {
     get,
+    getAllWithPagination,
     getAll,
     getByUser,
   };
