@@ -4,6 +4,12 @@ interface PaginationProps {
 }
 
 export function Pagination({ currentPage, setCurrentPage }: PaginationProps): JSX.Element {
+    const startPage = currentPage - 1;
+    const endPage = currentPage + 2;
+    const pages = Array.from({
+        length: endPage - startPage
+    }, (_, i) => i + startPage);
+
     return (
         <div className="mx-auto text-center">
             <div className="btn-group">
@@ -14,7 +20,15 @@ export function Pagination({ currentPage, setCurrentPage }: PaginationProps): JS
             >
                 Anterior
             </button>
-            <button className="btn btn-primary btn-outline">{currentPage}</button>
+            {pages.map(page => (
+                <button
+                    key={page}
+                    className={`btn btn-primary${currentPage === page ? " btn-outline" : ""}`}
+                    onClick={() => setCurrentPage(page)}
+                >
+                    {page}
+                </button>
+            ))}
             <button
                 className="btn btn-primary"
                 onClick={() => setCurrentPage(currentPage + 1)}
