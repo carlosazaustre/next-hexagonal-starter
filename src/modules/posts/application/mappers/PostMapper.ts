@@ -1,8 +1,14 @@
+import { Post } from '@/modules/posts/domain/Post';
 import { User } from '@/modules/users/domain/User';
 import { Comment } from '@/modules/comments/domain/Comment';
-import { Post } from '@/modules/posts/domain/Post';
 
-export function createUserMap(users: User[]): Map<number, User> {
+export const PostMapper = {
+    createUserMap,
+    createCommentCountMap,
+    addAuthorAndCommentCountToPosts,
+}
+
+function createUserMap(users: User[]): Map<number, User> {
     const userMap = new Map<number, User>();
 
     for (const user of users) {
@@ -12,7 +18,7 @@ export function createUserMap(users: User[]): Map<number, User> {
     return userMap;
 }
 
-export function createCommentCountMap(comments: Comment[]): Map<number, number> {
+function createCommentCountMap(comments: Comment[]): Map<number, number> {
     const commentCountMap = new Map<number, number>();
 
     for (const comment of comments) {
@@ -23,7 +29,7 @@ export function createCommentCountMap(comments: Comment[]): Map<number, number> 
     return commentCountMap;
 }
 
-export async function addAuthorAndCommentCountToPosts(
+async function addAuthorAndCommentCountToPosts(
     posts: Post[],
     userMap: Map<number, User>,
     commentCountByPostId: Map<number, number>,

@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 
 import { Post } from "@/modules/posts/domain/Post";
 import { getAllPosts } from "@/modules/posts/application/get-all/getAllPosts";
+import { PostMapper } from "@/modules/posts/application/mappers/PostMapper";
 
 import { createApiPostRepository } from "@/modules/posts/infra/ApiPostRepository";
 import { createApiUserRepository } from "@/modules/users/infra/ApiUserRepository";
@@ -51,6 +52,7 @@ export async function getStaticProps() {
     postRepository,
     userRepository,
     commentRepository,
+    PostMapper,
   )()) as Post[];
 
   return {

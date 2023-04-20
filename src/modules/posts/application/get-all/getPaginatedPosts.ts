@@ -2,16 +2,13 @@ import { PostRepository } from "../../domain/PostRepository";
 import { UserRepository } from "@/modules/users/domain/UserRepository";
 import { CommentRepository } from "@/modules/comments/domain/CommentRepository";
 import { Post } from "../../domain/Post";
-import {
-    createUserMap,
-    createCommentCountMap,
-    addAuthorAndCommentCountToPosts,
-} from "./utils";
+import { PostMapper } from "../mappers/PostMapper";
 
 export function getPaginatedPosts(
     postRepository: PostRepository,
     userRepository: UserRepository,
     commentRepository: CommentRepository,
+    postMapper: typeof PostMapper,
     limit: number,
     page: number,
 ): () => Promise<Post[]> {
@@ -22,9 +19,9 @@ export function getPaginatedPosts(
             commentRepository.getAll(),
         ]);
 
-        const userMap = createUserMap(users);
-        const commentCountByPostId = createCommentCountMap(comments);
+        const userMap = postMapper.createUserMap(users);
+        const commentCountByPostId = postMapper.createCommentCountMap(comments);
 
-        return await addAuthorAndCommentCountToPosts(posts, userMap, commentCountByPostId);
+        return await postMapper.addAuthorAndCommentCountToPosts(posts, userMap, commentCountByPostId);
     };
 }
