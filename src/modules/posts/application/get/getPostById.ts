@@ -1,13 +1,13 @@
-import { Post } from "../../domain/Post";
-import { PostRepository } from "../../domain/PostRepository";
 import { UserRepository } from "@/modules/users/domain/UserRepository";
 import { CommentRepository } from "@/modules/comments/domain/CommentRepository";
+import { PostRepository } from "../../domain/PostRepository";
+import { Post } from "../../domain/Post";
 
-export function getPost(
+export function getPostById(
   postRepository: PostRepository,
   userRepository: UserRepository,
   commentRepository: CommentRepository,
-) {
+): (postId: number) => Promise<Post> {
   return async (postId: number): Promise<Post> => {
     const post = await postRepository.get(postId);
 

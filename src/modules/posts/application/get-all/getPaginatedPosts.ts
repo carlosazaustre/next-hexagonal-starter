@@ -8,13 +8,13 @@ import {
     addAuthorAndCommentCountToPosts,
 } from "./utils";
 
-export function getAllPostsWithPagination(
+export function getPaginatedPosts(
     postRepository: PostRepository,
     userRepository: UserRepository,
     commentRepository: CommentRepository,
     limit: number,
     page: number,
-) {
+): () => Promise<Post[]> {
     return async (): Promise<Post[]> => {
         const [posts, users, comments] = await Promise.all([
             postRepository.getAllWithPagination(limit, page),

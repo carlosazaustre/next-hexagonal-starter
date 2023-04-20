@@ -1,11 +1,8 @@
 import { Post } from "@/modules/posts/domain/Post";
 import { Comment } from "@/modules/comments/domain/Comment";
-import { PostRepository } from "@/modules/posts/domain/PostRepository";
-import { UserRepository } from "@/modules/users/domain/UserRepository";
-import { CommentRepository } from "@/modules/comments/domain/CommentRepository";
 
 import { getAllPosts } from "@/modules/posts/application/get-all/getAllPosts";
-import { getPost } from "@/modules/posts/application/get/getPost";
+import { getPostById } from "@/modules/posts/application/get/getPostById";
 import { getAllCommentsByPost } from "@/modules/comments/application/get-all/getAllCommentsByPost";
 
 import { createApiPostRepository } from "@/modules/posts/infra/ApiPostRepository";
@@ -15,9 +12,9 @@ import { createApiCommentRepository } from "@/modules/comments/infra/ApiCommentR
 import { PostCard } from "@/sections/posts/PostCard";
 import { CommentsList } from "@/sections/comments/CommentsList";
 
-const postRepository = createApiPostRepository() as PostRepository;
-const userRepository = createApiUserRepository() as UserRepository;
-const commentRepository = createApiCommentRepository() as CommentRepository;
+const postRepository = createApiPostRepository();
+const userRepository = createApiUserRepository();
+const commentRepository = createApiCommentRepository();
 
 interface PostPageProps {
   post: Post;
@@ -55,7 +52,7 @@ export async function getStaticProps({
   };
 }) {
   const { postId } = params;
-  const post = (await getPost(postRepository,userRepository, commentRepository)(parseInt(postId))) as Post;
+  const post = (await getPostById(postRepository,userRepository, commentRepository)(parseInt(postId))) as Post;
   const comments = (await getAllCommentsByPost(commentRepository)(parseInt(postId))) as Comment[];
 
   return {

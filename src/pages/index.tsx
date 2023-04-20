@@ -1,10 +1,14 @@
 import { Inter } from "next/font/google";
+
 import { Post } from "@/modules/posts/domain/Post";
 import { getAllPosts } from "@/modules/posts/application/get-all/getAllPosts";
+
 import { createApiPostRepository } from "@/modules/posts/infra/ApiPostRepository";
 import { createApiUserRepository } from "@/modules/users/infra/ApiUserRepository";
 import { createApiCommentRepository } from "@/modules/comments/infra/ApiCommentRepository";
+
 import { usePagination } from "@/hooks/usePagination";
+
 import { PostsList } from "@/sections/posts/PostsList";
 import { Pagination } from "@/components/Pagination";
 
@@ -47,8 +51,6 @@ export async function getStaticProps() {
     postRepository,
     userRepository,
     commentRepository,
-    limit,
-    page,
   )()) as Post[];
 
   return {
