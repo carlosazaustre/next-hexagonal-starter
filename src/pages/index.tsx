@@ -6,6 +6,7 @@ import { createApiUserRepository } from "@/modules/users/infra/ApiUserRepository
 import { createApiCommentRepository } from "@/modules/comments/infra/ApiCommentRepository";
 import { usePagination } from "@/hooks/usePagination";
 import { PostsList } from "@/sections/posts/PostsList";
+import { Pagination } from "@/components/Pagination";
 
 const inter = Inter({ subsets: ["latin"] });
 const ITEMS_PER_PAGE = 5;
@@ -34,24 +35,7 @@ export default function HomePage({ posts, page = INITIAL_PAGE, limit = ITEMS_PER
   return (
     <main className={inter.className}>
       <PostsList posts={currentPosts}/>
-      <div className="mx-auto text-center">
-        <div className="btn-group">
-          <button
-            className="btn btn-primary"
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage(currentPage - 1)}
-            >
-            Anterior
-          </button>
-          <button className="btn btn-primary btn-outline">{currentPage}</button>
-          <button
-            className="btn btn-primary"
-            onClick={() => setCurrentPage(currentPage + 1)}
-            >
-            Siguiente
-          </button>
-        </div>
-      </div>
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} />
     </main>
   );
 }

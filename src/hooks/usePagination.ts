@@ -3,7 +3,7 @@ import { Post } from "@/modules/posts/domain/Post";
 import { PostRepository } from "@/modules/posts/domain/PostRepository";
 import { UserRepository } from "@/modules/users/domain/UserRepository";
 import { CommentRepository } from "@/modules/comments/domain/CommentRepository";
-import { getAllPosts } from "@/modules/posts/application/get-all/getAllPosts";
+import { getAllPostsWithPagination } from "@/modules/posts/application/get-all/getAllPostsWithPagination";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 export function usePagination(
@@ -18,7 +18,7 @@ export function usePagination(
   const [currentPage, setCurrentPage] = useLocalStorage<number>('currentPage', initialPage);
 
   const fetchMorePosts = async () => {
-    const fetchedPosts: Post[] = await getAllPosts(
+    const fetchedPosts: Post[] = await getAllPostsWithPagination(
       postRepository,
       userRepository,
       commentRepository,
