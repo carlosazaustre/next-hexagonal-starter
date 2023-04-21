@@ -26,6 +26,7 @@ jobs:
 
       - name: Test
         run: npm run test:ci
+
   e2e:
     runs-on: ubuntu-latest
 
