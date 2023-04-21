@@ -1,0 +1,85 @@
+{
+	"users": [
+		{
+			"id": 1,
+			"name": "User 1",
+			"email": "user1@mail.com",
+			"address": {
+				"street": "Street 1",
+				"suite": "Suite 1",
+				"city": "City 1",
+				"zipcode": "Zipcode 1",
+				"geo": {
+					"lat": "Lat 1",
+					"lng": "Lng 1"
+				}
+			},
+			"phone": "Phone 1",
+			"website": "Website 1",
+			"company": {
+				"name": "Company 1",
+				"catchPhrase": "Catch phrase 1",
+				"bs": "BS 1"
+			}
+		},
+		{
+			"id": 2,
+			"name": "User 2",
+			"email": "user2@mail.com",
+			"address": {
+				"street": "Street 2",
+				"suite": "Suite 2",
+				"city": "City 2",
+				"zipcode": "Zipcode 2",
+				"geo": {
+					"lat": "Lat 2",
+					"lng": "Lng 2"
+				}
+			},
+			"phone": "Phone 2",
+			"website": "Website 2",
+			"company": {
+				"name": "Company 2",
+				"catchPhrase": "Catch phrase 2",
+				"bs": "BS 2"
+			}
+		}
+	],
+	"posts": [
+		{
+			"id": 1,
+			"userId": 1,
+			"title": "Post 1",
+			"body": "Body 1"
+		},
+		{
+			"id": 2,
+			"userId": 2,
+			"title": "Post 2",
+			"body": "Body 2"
+		}
+	],
+	"comments": [
+		{
+			"id": 1,
+			"postId": 1,
+			"body": "Comment 1",
+			"name": "Comment 1",
+			"email": "user1@mail.com"
+		},
+		{
+			"id": 2,
+			"postId": 1,
+			"body": "Comment 2",
+			"name": "Comment 2",
+			"email": "user2@mail.com"
+		},
+		{
+			"id": 3,
+			"postId": 2,
+			"body": "Comment 3",
+			"name": "Comment 3",
+			"email": "user3@mail.com"
+		}
+	]
+}

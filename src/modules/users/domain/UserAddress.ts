@@ -1,9 +1,9 @@
-import { UserAddressGeolocation } from "./UserAddressGeolocation";
+import { UserAddressGeolocation } from './UserAddressGeolocation';
 
 export interface UserAddress {
-  street: string;
-  suite: string;
-  city: string;
-  zipcode: string;
-  geo: UserAddressGeolocation;
+	street: string;
+	suite: string;
+	city: string;
+	zipcode: string;
+	geo: UserAddressGeolocation;
 }
