@@ -1,4 +1,4 @@
 export interface UserAddressGeolocation {
-  lat: string;
-  lng: string;
+	lat: string;
+	lng: string;
 }

@@ -1,5 +1,5 @@
 export interface UserCompany {
-  name: string;
-  cathPhrase: string;
-  bs: string;
+	name: string;
+	catchPhrase: string;
+	bs: string;
 }
