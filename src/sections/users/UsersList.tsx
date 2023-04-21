@@ -1,4 +1,4 @@
-import { User } from '@/modules/users/domain/User';
+import { User } from '@/src/modules/users/domain/User';
 import { UserCard } from './UserCard';
 
 interface UserListProps {

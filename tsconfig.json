@@ -5,6 +5,7 @@
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
+		"types": ["jest", "node"],
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
 		"esModuleInterop": true,
@@ -22,10 +23,13 @@
 	},
 	"include": [
 		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
+		"./src/**/*.ts",
+		"./src/**/*.tsx",
+		"./__tests__/**/*.tsx",
+		"./__tests__/**/*.ts",
 		"types.d.ts",
-		"jest.setup.js"
-, "jest.config.ts"	],
-	"exclude": ["node_modules"]
+		"jest.setup.js",
+		"jest.config.ts"
+	],
+	"exclude": ["node_modules", "./cypress"]
 }

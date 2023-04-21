@@ -1,4 +1,4 @@
-import { Post } from '../../modules/posts/domain/Post';
+import { Post } from '@/src/modules/posts/domain/Post';
 
 interface PostCardProps {
   post: Post;

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Post } from '@/modules/posts/domain/Post';
+import { Post } from '@/src/modules/posts/domain/Post';
 import { PostCard } from './PostCard';
 
 interface PostListProps {

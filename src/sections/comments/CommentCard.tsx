@@ -1,4 +1,4 @@
-import { Comment } from '@/modules/comments/domain/Comment';
+import { Comment } from '@/src/modules/comments/domain/Comment';
 
 interface CommentCardProps {
     comment: Comment;
