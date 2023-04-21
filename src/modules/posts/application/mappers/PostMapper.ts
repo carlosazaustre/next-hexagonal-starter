@@ -1,6 +1,6 @@
-import { Post } from '@/modules/posts/domain/Post';
-import { User } from '@/modules/users/domain/User';
-import { Comment } from '@/modules/comments/domain/Comment';
+import { Post } from '@/src/modules/posts/domain/Post';
+import { User } from '@/src/modules/users/domain/User';
+import { Comment } from '@/src/modules/comments/domain/Comment';
 
 export const PostMapper = {
 	createUserMap,

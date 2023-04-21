@@ -1,5 +1,5 @@
-import { UserRepository } from '@/modules/users/domain/UserRepository';
-import { CommentRepository } from '@/modules/comments/domain/CommentRepository';
+import { UserRepository } from '@/src/modules/users/domain/UserRepository';
+import { CommentRepository } from '@/src/modules/comments/domain/CommentRepository';
 import { PostRepository } from '../../domain/PostRepository';
 import { Post } from '../../domain/Post';
 

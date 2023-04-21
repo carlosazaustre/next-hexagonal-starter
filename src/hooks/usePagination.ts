@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Post } from '@/modules/posts/domain/Post';
-import { PostRepository } from '@/modules/posts/domain/PostRepository';
-import { UserRepository } from '@/modules/users/domain/UserRepository';
-import { CommentRepository } from '@/modules/comments/domain/CommentRepository';
-import { getPaginatedPosts } from '@/modules/posts/application/get-all/getPaginatedPosts';
-import { PostMapper } from '@/modules/posts/application/mappers/PostMapper';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { Post } from '@/src/modules/posts/domain/Post';
+import { PostRepository } from '@/src/modules/posts/domain/PostRepository';
+import { UserRepository } from '@/src/modules/users/domain/UserRepository';
+import { CommentRepository } from '@/src/modules/comments/domain/CommentRepository';
+import { getPaginatedPosts } from '@/src/modules/posts/application/get-all/getPaginatedPosts';
+import { PostMapper } from '@/src/modules/posts/application/mappers/PostMapper';
+import { useLocalStorage } from '@/src/hooks/useLocalStorage';
 
 export function usePagination(
 	postRepository: PostRepository,

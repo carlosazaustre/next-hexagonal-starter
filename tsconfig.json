@@ -16,7 +16,8 @@
 		"incremental": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*", "./__tests__"]
+			"@/src/*": ["./src/*"],
+			"@/tests/*": ["./__tests__/*"]
 		}
 	},
 	"include": [
@@ -25,6 +26,6 @@
 		"**/*.tsx",
 		"types.d.ts",
 		"jest.setup.js"
-	],
+, "jest.config.ts"	],
 	"exclude": ["node_modules"]
 }

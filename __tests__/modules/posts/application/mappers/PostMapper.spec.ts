@@ -1,5 +1,5 @@
-import { PostMapper } from '@/modules/posts/application/mappers/PostMapper';
-import { users, posts, comments } from '../../../../fixtures/mockData.json';
+import { PostMapper } from '@/src/modules/posts/application/mappers/PostMapper';
+import { users, posts, comments } from '@/tests/fixtures/mockData.json';
 
 describe('[mapper] PostMapper', () => {
 	describe('createUserMap', () => {
