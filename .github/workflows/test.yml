@@ -3,50 +3,50 @@ name: test
 on: push
 
 jobs:
-  unit:
-    runs-on: ubuntu-latest
+	unit:
+		runs-on: ubuntu-latest
 
-    steps:
-			- uses: actions/checkout@v2
+		steps:
+		- uses: actions/checkout@v2
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
+		- name: Cache node modules
+			uses: actions/cache@v2
+			env:
+				cache-name: cache-node-modules
+			with:
+				path: ~/.npm
+				key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+				restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install Dependencies
-        run: npm install
+			- name: Install Dependencies
+				run: npm install
 
-      - name: Test
-        run: npm run test:ci
+			- name: Test
+				run: npm run test:ci
 
   e2e:
-    runs-on: ubuntu-latest
+		runs-on: ubuntu-latest
 
-    steps:
+		steps:
 			-	uses: actions/checkout@v2
 
 			- name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+				uses: actions/cache@v2
+				env:
+					cache-name: cache-node-modules
+				with:
+					path: ~/.npm
+					key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+					restore-keys: |
+						${{ runner.os }}-build-${{ env.cache-name }}-
+						${{ runner.os }}-build-
+						${{ runner.os }}-
 
-      - name: Install Dependencies
-        run: npm install
+			- name: Install Dependencies
+				run: npm install
 
 			- name: Run Cypress Tests
 				run: npm run cy:run
