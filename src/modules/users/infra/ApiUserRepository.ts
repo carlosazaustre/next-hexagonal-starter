@@ -6,7 +6,7 @@ const JSONPLACEHOLDER_URL = 'https://jsonplaceholder.typicode.com';
 export function createApiUserRepository(): UserRepository {
 	const cache: Map<number, User> = new Map();
 
-	async function get(id: number): Promise<User | null> {
+	async function get(id: number): Promise<User | undefined> {
 		if (cache.has(id)) {
 			return cache.get(id) as User;
 		}
