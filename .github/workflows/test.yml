@@ -30,26 +30,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v2
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+        - name: Set up Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: 14
 
-      - name: Install Dependencies
-        run: npm install
+        - name: Install Dependencies
+          run: npm ci
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with:
-          build: npm run build
-          start: npm run start
-          wait-on: 'http://localhost:3000'
+        - name: Run Cypress Tests
+          run: npm run cy:run
