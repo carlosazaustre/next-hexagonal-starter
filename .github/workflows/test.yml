@@ -48,4 +48,4 @@ jobs:
         run: npm install
 
       - name: Cypress run
-        run: npm run cy:run
+        run: npm run e2e
