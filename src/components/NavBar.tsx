@@ -7,6 +7,9 @@ function SectionLinksList(): JSX.Element {
 	return (
 		<>
 			<li>
+				<Link className="btn btn-primary" href="/create">Create Post</Link>
+			</li>
+			<li>
 				<Link href="/">Posts</Link>
 			</li>
 			<li>
@@ -46,9 +49,9 @@ export function NavBar({ children }: NavBarProps): JSX.Element {
 					</div>
 					<div className="container mx-auto">
 						<div className="navbar">
-							<a className="btn btn-ghost normal-case text-xl">
+							<Link href="/" className="btn btn-ghost normal-case text-xl">
                 Hexagonal Blog Example
-							</a>
+							</Link>
 						</div>
 						<div className="flex-none hidden lg:block">
 							<ul className="menu menu-horizontal">
