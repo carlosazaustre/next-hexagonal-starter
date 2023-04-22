@@ -1,9 +1,10 @@
 interface CreatePostFormProps {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	onChange: (value: any) => void;
 	onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function CreatePostForm({ onSubmit, onChange }: CreatePostFormProps): JSX.Element {
+export function CreatePostForm({ onChange, onSubmit }: CreatePostFormProps): JSX.Element {
 	return (
 		<>
 			<h2 className="text-2xl font-bold mt-6 mx-6">Create a Post</h2>
@@ -16,7 +17,7 @@ export function CreatePostForm({ onSubmit, onChange }: CreatePostFormProps): JSX
 						type="text"
 						placeholder="Type here"
 						className="input input-bordered w-full max-w-xs"
-						onChange={onChange}
+						onChange={(ev) => onChange({ title: ev.target.value })}
 					/>
 					<label className="label">
 						<span className="label-text-alt">Bottom Left label</span>
@@ -29,7 +30,7 @@ export function CreatePostForm({ onSubmit, onChange }: CreatePostFormProps): JSX
 					<textarea
 						className="textarea textarea-bordered"
 						placeholder="Bio"
-						onChange={onChange}
+						onChange={(ev) => onChange({ body: ev.target.value })}
 					></textarea>
 					<label className="label">
 						<span className="label-text-alt">Bottom Left label</span>

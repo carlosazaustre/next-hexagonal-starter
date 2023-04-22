@@ -1,4 +1,6 @@
 import { Post } from '../domain/Post';
+import { PostDataCreate } from '../domain/PostDataCreate';
+import { PostDataResponse } from '../domain/PostDataResponse'; 
 import { PostRepository } from '../domain/PostRepository';
 
 const JSONPLACEHOLDER_URL = 'https://jsonplaceholder.typicode.com';
@@ -59,7 +61,28 @@ export function createApiPostRepository(): PostRepository {
 		return posts;
 	}
 
+	async function create(post: PostDataCreate): Promise<PostDataResponse> {
+		const { title, body, userId } = post;
+
+		const response = await fetch(`${JSONPLACEHOLDER_URL}/posts`, {
+			method: 'POST',
+			body: JSON.stringify({
+				title,
+				body,
+				userId,
+			}),
+			headers: {
+				'Content-type': 'application/json; charset=UTF-8',
+			},
+		});
+
+		const createdPost = await response.json();
+
+		return createdPost;
+	}
+
 	return {
+		create,
 		get,
 		getAllWithPagination,
 		getAll,
