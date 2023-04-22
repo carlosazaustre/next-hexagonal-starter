@@ -15,6 +15,7 @@ export function CreatePostForm({ onChange, onSubmit }: CreatePostFormProps): JSX
 					</label>
 					<input
 						type="text"
+						name="title"
 						placeholder="Type here"
 						className="input input-bordered w-full max-w-xs"
 						onChange={(ev) => onChange({ title: ev.target.value })}
@@ -29,7 +30,8 @@ export function CreatePostForm({ onChange, onSubmit }: CreatePostFormProps): JSX
 					</label>
 					<textarea
 						className="textarea textarea-bordered"
-						placeholder="Bio"
+						name="body"
+						placeholder="Post text here"
 						onChange={(ev) => onChange({ body: ev.target.value })}
 					></textarea>
 					<label className="label">

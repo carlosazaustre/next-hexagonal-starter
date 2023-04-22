@@ -31,7 +31,7 @@ export function NavBar({ children }: NavBarProps): JSX.Element {
 			<div className="drawer-content flex flex-col">
 				<div className="w-full navbar bg-primary">
 					<div className="flex-none lg:hidden">
-						<label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
+						<label htmlFor="burguerMenu" className="btn btn-square btn-ghost">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								fill="none"
