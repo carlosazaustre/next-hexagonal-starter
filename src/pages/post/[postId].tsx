@@ -9,9 +9,8 @@ import { getAllCommentsByPost } from '@/src/modules/comments/application/get-all
 import { createApiPostRepository } from '@/src/modules/posts/infra/ApiPostRepository';
 import { createApiUserRepository } from '@/src/modules/users/infra/ApiUserRepository';
 import { createApiCommentRepository } from '@/src/modules/comments/infra/ApiCommentRepository';
-
-import { PostCard } from '@/src/sections/posts/PostCard';
-import { CommentsList } from '@/src/sections/comments/CommentsList';
+import { PostCard } from '@/src/modules/posts/ui/components/PostCard';
+import { CommentsList } from '@/src/modules/comments/ui/components/CommentsList';
 
 const postRepository = createApiPostRepository();
 const userRepository = createApiUserRepository();

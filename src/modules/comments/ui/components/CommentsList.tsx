@@ -1,5 +1,5 @@
 import { Comment } from '@/src/modules/comments/domain/Comment';
-import { CommentCard } from '@/src/sections/comments/CommentCard';
+import { CommentCard } from './CommentCard';
 
 interface CommentsListProps {
     comments: Comment[];
