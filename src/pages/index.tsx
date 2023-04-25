@@ -10,8 +10,8 @@ import { createApiCommentRepository } from '@/src/modules/comments/infra/ApiComm
 
 import { usePagination } from '@/src/hooks/usePagination';
 
-import { PostsList } from '@/src/sections/posts/PostsList';
 import { Pagination } from '@/src/components/Pagination';
+import { PostsList } from '@/src/modules/posts/ui/components/PostsList';
 
 const inter = Inter({ subsets: ['latin'] });
 const ITEMS_PER_PAGE = 5;

@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { createApiPostRepository } from '@/src/modules/posts/infra/ApiPostRepository';
 import { createApiUserRepository } from '@/src/modules/users/infra/ApiUserRepository';
-import { CreatePostForm } from '@/src/sections/posts/CreatePostForm';
 import { FormStatus, useFormData } from '@/src/hooks/useFormData';
-import { usePostForm } from '@/src/sections/posts/usePostForm';
 import { Post } from '@/src/modules/posts/domain/Post';
-import { PostCard } from '@/src/sections/posts/PostCard';
+import { PostCard } from '@/src/modules/posts/ui/components/PostCard';
+import { usePostForm } from '@/src/modules/posts/ui/hooks/usePostForm';
+import { CreatePostForm } from '@/src/modules/posts/ui/components/CreatePostForm';
 // TODO: import validations from domain
 
 const postRepository = createApiPostRepository();
