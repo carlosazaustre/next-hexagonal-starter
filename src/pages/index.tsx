@@ -8,9 +8,9 @@ import { createApiPostRepository } from '@/src/modules/posts/infra/ApiPostReposi
 import { createApiUserRepository } from '@/src/modules/users/infra/ApiUserRepository';
 import { createApiCommentRepository } from '@/src/modules/comments/infra/ApiCommentRepository';
 
-import { usePagination } from '@/src/hooks/usePagination';
+import { usePagination } from '@/src/shared/hooks/usePagination';
 
-import { Pagination } from '@/src/components/Pagination';
+import { Pagination } from '@/src/shared/components/Pagination';
 import { PostsList } from '@/src/modules/posts/ui/components/PostsList';
 
 const inter = Inter({ subsets: ['latin'] });

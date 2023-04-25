@@ -5,7 +5,7 @@ import { UserRepository } from '@/src/modules/users/domain/UserRepository';
 import { CommentRepository } from '@/src/modules/comments/domain/CommentRepository';
 import { getPaginatedPosts } from '@/src/modules/posts/application/get-all/getPaginatedPosts';
 import { PostMapper } from '@/src/modules/posts/application/mappers/PostMapper';
-import { useLocalStorage } from '@/src/hooks/useLocalStorage';
+import { useLocalStorage } from '@/src/shared/hooks/useLocalStorage';
 
 export function usePagination(
 	postRepository: PostRepository,
